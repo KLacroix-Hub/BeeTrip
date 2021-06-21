@@ -23,7 +23,7 @@ const App = () => {
       <input 
         type="text"
         className ="search"
-        placeholder = "Search..."
+        placeholder = "Rechercher une ville..."
         value={query}
         onChange={ (e) => setQuery(e.target.value) }
         onKeyPress = {search}
@@ -31,18 +31,17 @@ const App = () => {
 
       { weather.main && (
 
-        <div className="city">
+        <div className="Ville">
 
-          <h2 className='city-name'>
-            <span>{ weather.name }</span>
-            <sup>{ weather.sys.country }</sup>
+          <h2 className='nomVilleContainer'>
+            <span> { weather.name } { weather.sys.country } </span>
+            <p>{ Math.round(weather.main.temp) }<sup>&deg;C</sup></p>
           </h2>
 
-          <div className="city-temp">
-           { Math.round(weather.main.temp) }<sup>&deg;C</sup>
+          <div className="temperatureVille">
             { Math.round(weather.main.temp) < 15
-            ? <p className="Froid">Il fait froid</p>
-            : <p className="Chaud">Il fait chaud</p>
+            ? <span className="Froid"></span>
+            : <span className="Chaud"></span>
             }
           </div>
 
